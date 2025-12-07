@@ -4,7 +4,7 @@ import pymongo
 import certifi
 
 from src.exception import MyException
-from src.logger import logging
+from src.logger import logger  # ← Changed this line
 from src.constants import DATABASE_NAME, MONGODB_URL_KEY
 
 # Load the certificate authority file to avoid timeout errors when connecting to MongoDB
@@ -57,7 +57,7 @@ class MongoDBClient:
             self.client = MongoDBClient.client
             self.database = self.client[database_name]  # Connect to the specified database
             self.database_name = database_name
-            logging.info("MongoDB connection successful.")
+            logger.info("MongoDB connection successful.")  # ← Changed this line
             
         except Exception as e:
             # Raise a custom exception with traceback details if connection fails
