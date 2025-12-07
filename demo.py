@@ -1,28 +1,27 @@
 # below code is to check the logging config
-# from src.logger import logging
+# from src.logger import logger
 
-# logging.debug("This is a debug message.")
-# logging.info("This is an info message.")
-# logging.warning("This is a warning message.")
-# logging.error("This is an error message.")
-# logging.critical("This is a critical message.")
+# logger.debug("Debug message test")
+# logger.info("Info message test")
+# logger.error("Error message test")
+
 
 # --------------------------------------------------------------------------------
 
 # # below code is to check the exception config
-# from src.logger import logging
-# from src.exception import MyException
-# import sys
+from src.logger import logger
+from src.exception import MyException
+import sys
 
-# try:
-#     a = 1+'Z'
-# except Exception as e:
-#     logging.info(e)
-#     raise MyException(e, sys) from e
+try:
+    a = 1 + 'Z'
+except Exception as e:
+    logger.info(f"An exception occurred: {e}")
+    raise MyException(e, sys) from e
 
 # --------------------------------------------------------------------------------
 
-from src.pipline.training_pipeline import TrainPipeline
+# from src.pipline.training_pipeline import TrainPipeline
 
-pipline = TrainPipeline()
-pipline.run_pipeline()
+# pipline = TrainPipeline()
+# pipline.run_pipeline()
